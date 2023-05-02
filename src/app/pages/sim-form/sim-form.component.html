@@ -1,0 +1,120 @@
+<div>
+    <div class="container">
+        <form>
+            <!-- Boton para enviar la señales a ser procesadas -->
+            <div class="row mt-3">
+                <div class="col">
+                    <button type="button" class="btn btn-success" [disabled]="timerActive"
+                        (click)="start()">Start</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-danger" [disabled]="!timerActive"
+                        (click)="stop()">Stop</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" [disabled]="timerActive" (click)="emitir()">Emitir
+                        manual</button>
+                </div>
+                <div class="col">
+                    <label for="laminaAgua" class="form-label">Tiempo por ciclo</label>
+
+                    <input [disabled]="timerActive" type="number" step="1000" class="form-control" id="tiempoCiclo"
+                        name="tiempoCiclo" [(ngModel)]="tiempoCiclo">
+                </div>
+                <div class="col"> </div>
+                <div class="col"> </div>
+            </div>
+            <!-- Formulario para insertar señales -->
+            <div class="row">
+                <div class="col">
+                    <label for="laminaAgua" class="form-label">Lamina de agua</label>
+                    <input [disabled]="timerActive" type="number" step="0.01" class="form-control" id="laminaAgua"
+                        name="laminaAgua" [(ngModel)]="signals.laminaAgua">
+                </div>
+
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col">
+
+                            <label for="aguaDesdeDeposito" class="form-label">Agua DESDE depósito m3/h</label>
+                            <input disabled="" type="number" step="0.1" class="form-control" id="aguaDesdeDeposito"
+                                name="aguaDesdeDeposito" [(ngModel)]="signals.aguaDesdeDeposito">
+                        </div>
+                        <div class="col">
+
+                            <label for="aguaHaciaDeposito" class="form-label">Agua HACIA depósito m3/h</label>
+                            <input disabled="" type="number" step="0.1" class="form-control" id="aguaHaciaDeposito"
+                                name="aguaHaciaDeposito" [(ngModel)]="signals.aguaHaciaDeposito">
+                        </div>
+                        <div class="col">
+
+                            <label for="aguaDesdeBomba" class="form-label">Agua DESDE Bomba m3/h</label>
+                            <input disabled="" type="number" step="0.1" class="form-control" id="aguaDesdeBomba"
+                                name="aguaDesdeBomba" [(ngModel)]="signals.aguaDesdeBomba">
+                        </div>
+
+
+
+                        <div class="col">
+
+                            <label for="consumoCalculado" class="form-label">Consumo CIUDAD</label>
+                            <input type="number" class="form-control" id="consumoCalculado" name="consumoCalculado"
+                                [(ngModel)]="signals.consumoCiudad">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <label for="presionAgua" class="form-label">Presión Agua</label>
+                    <input [disabled]="timerActive" type="number" step="0.01" class="form-control" id="presionAgua"
+                        name="presionAgua" [(ngModel)]="signals.presionAgua">
+                </div>
+            </div>
+
+            <!-- Visualizar estado de señales del sistema -->
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="deseoLamina" class="form-label">deseoLamina</label>
+                    <input disabled="" type="number" class="form-control" id="deseoLamina" name="deseoLamina"
+                        [(ngModel)]="signals.deseoLamina">
+                </div>
+                <div class="col">
+                    <label for="deseoInercia" class="form-label">deseoInercia</label>
+                    <input disabled="" type="number" class="form-control" id="deseoInercia" name="deseoInercia"
+                        [(ngModel)]="signals.deseoInercia">
+                </div>
+                <div class="col">
+                    <label for="deseoPresion" class="form-label">deseoPresion</label>
+                    <input disabled="" type="number" class="form-control" id="deseoPresion" name="deseoPresion"
+                        [(ngModel)]="signals.deseoPresion">
+                </div>
+                <div class="col">
+                    <label for="influenciaMotor" class="form-label">influenciaMotor</label>
+                    <input disabled="" type="number" class="form-control" id="influenciaMotor" name="influenciaMotor"
+                        [(ngModel)]="signals.influenciaMotor">
+                </div>
+                <div class="col">
+                    <label for="estadoBombas" class="form-label">estadoBombas</label>
+                    <input disabled="" type="number" class="form-control" id="estadoBombas" name="estadoBombas"
+                        [(ngModel)]="signals.estadoBombas">
+                </div>
+            </div>
+
+            <!-- <div class="row">
+            <div class="col mt-3">
+                <div class="form-floating">
+                    <label for="historico" class="form-label">Histórico valores</label>
+                    <textarea disabled class="form-control" id="historico" name="historico" [(ngModel)]="signals.historico"></textarea>
+                  </div>
+            </div>
+        </div> -->
+
+        </form>
+    </div>
+    <div class="row mt-3" style="margin: 10px;">
+        <div echarts [options]="options" [merge]="merge" style="height: 560px"></div>
+    </div>
+
+</div>
