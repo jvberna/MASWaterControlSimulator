@@ -6,23 +6,23 @@
                 <div class="col">
                     <button type="button" class="btn btn-success" [disabled]="timerActive"
                         (click)="start()">Start</button>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-danger" [disabled]="!timerActive"
+                        <button type="button" class="btn btn-danger ms-3" [disabled]="!timerActive"
                         (click)="stop()">Stop</button>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-primary" [disabled]="timerActive" (click)="emitir()">Emitir
                         manual</button>
+                    
                 </div>
                 <div class="col">
+                </div>
+                <div class="col text-end">
                     <label for="laminaAgua" class="form-label">Tiempo por ciclo</label>
-
+                </div><div class="col">
                     <input [disabled]="timerActive" type="number" step="1000" class="form-control" id="tiempoCiclo"
                         name="tiempoCiclo" [(ngModel)]="tiempoCiclo">
                 </div>
-                <div class="col"> </div>
-                <div class="col"> </div>
+                
             </div>
             <!-- Formulario para insertar señales -->
             <div class="row">
@@ -32,7 +32,7 @@
                         name="laminaAgua" [(ngModel)]="signals.laminaAgua">
                 </div>
 
-                <div class="col-6">
+                <div class="col-9">
                     <div class="row">
                         <div class="col">
 
