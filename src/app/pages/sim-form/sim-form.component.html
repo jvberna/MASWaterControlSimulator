@@ -15,6 +15,10 @@
                     
                 </div>
                 <div class="col">
+                    <label for="laminaAgua" class="form-label">Tiempo itera</label>
+                </div><div class="col">
+                    <input [disabled]="timerActive" type="number" step="1000" class="form-control" id="time"
+                        name="time" [(ngModel)]="time">
                 </div>
                 <div class="col text-end">
                     <label for="laminaAgua" class="form-label">Tiempo por ciclo</label>
@@ -96,21 +100,16 @@
                         [(ngModel)]="signals.influenciaMotor">
                 </div>
                 <div class="col">
+                    <label for="estadoDeseadoBombas" class="form-label">estadoDeseadoBombas</label>
+                    <input disabled="" type="number" class="form-control" id="estadoDeseadoBombas" name="estadoDeseadoBombas"
+                        [(ngModel)]="signals.estadoDeseadoBombas">
+                </div>
+                <div class="col">
                     <label for="estadoBombas" class="form-label">estadoBombas</label>
                     <input disabled="" type="number" class="form-control" id="estadoBombas" name="estadoBombas"
                         [(ngModel)]="signals.estadoBombas">
                 </div>
             </div>
-
-            <!-- <div class="row">
-            <div class="col mt-3">
-                <div class="form-floating">
-                    <label for="historico" class="form-label">Histórico valores</label>
-                    <textarea disabled class="form-control" id="historico" name="historico" [(ngModel)]="signals.historico"></textarea>
-                  </div>
-            </div>
-        </div> -->
-
         </form>
     </div>
     <div class="row mt-3" style="margin: 10px;">
